@@ -1,6 +1,8 @@
 .home{ 
-    margin: 20px;}
-
-.activeLink{
-    color: orange;
+    margin: 20px;
+    
 }
+.home.active{
+    color: orange
+}
+
