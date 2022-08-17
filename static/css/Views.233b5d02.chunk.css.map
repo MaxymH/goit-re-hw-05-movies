@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/Views.233b5d02.chunk.css","mappings":"AAAA,qBACA,oBAAqB,CACrB,iBAAkB,CAFX,WAGP,CACA,uBAEI,UAAW,CADX,eAEJ","sources":["components/Reviews/reviews.module.css"],"sourcesContent":[".item{ margin: 20px;\nborder: 2px red solid;\nborder-radius: 5px;\n}\n.author{\n    margin-top: 10px;\n    color: gold;\n}"],"names":[],"sourceRoot":""}
