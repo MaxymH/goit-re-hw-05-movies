@@ -1,0 +1,51 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+.img{
+   
+   height: 600px;
+    width: 500px;
+}
+.overview{
+    width: 400px;
+    background-color: rgb(165, 238, 229);
+    border-radius: 10px;
+}
+.date{
+    margin-top: 20px;
+    border: 2px rgb(165, 238, 229) solid;
+    width: 100px;
+    text-align: center;
+}
+.title{
+    
+    color: chartreuse;
+    height: 50px;
+    width: 500px;
+    background-color: black;
+    text-align: center;
+    
+}
+.back{
+    border: 0;
+    height: 50px;
+    width: 100px;
+    border-radius: 20px;
+    background-color: rgb(185, 231, 142);
+    
+}
+.back:hover{
+    cursor: pointer;
+    background-color: red;
+}
+.link{
+    background-color: rgb(189, 99, 191);
+    font-size: 40px;
+    border-radius: 20px;
+    border: 2px black solid;
+}
+.listLink{
+    display: flex;
+}

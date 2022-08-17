@@ -1,0 +1,13 @@
+.list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.item{
+    margin: 50px;
+    display: flex;
+    align-content: center
+}
+.name{
+    width: 100px;
+}

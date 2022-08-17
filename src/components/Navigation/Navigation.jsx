@@ -4,7 +4,7 @@ import s from "./Navigation.module.css"
 
 
 const Navigation = () => (
-    <nav>
+    <nav className={s.nav}>
         <NavLink
             
             to='/'

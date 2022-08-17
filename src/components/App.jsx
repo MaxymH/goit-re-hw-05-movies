@@ -1,15 +1,21 @@
+import { lazy, Suspense } from 'react';
+
+
 import Navigation  from "./Navigation/Navigation";
 
 import { Route, Routes } from 'react-router-dom';
-import Home from "./views/HomePage";
-import Movies from "./views/Movies";
-import NotFound from "./views/NotFound";
-import Detail from "./views/DetailFilm";
-import Author from "./views/Authors";
-import Views from "./views/Views";
+
+const Home = lazy(() => import("../pages/HomePage" /* webpackChunkName: 'Home'*/))
+const Movies = lazy(() => import("../pages/Movies" /* webpackChunkName: 'Movies'*/))
+const NotFound = lazy(() => import("../pages/NotFound" /* webpackChunkName: 'NotFound'*/))
+const Cast = lazy(() => import("./Cast" /* webpackChunkName: 'Author'*/))
+const Reviews = lazy(() => import("./Reviews" /* webpackChunkName: 'Views'*/))
+const Detail = lazy(() => import('../pages/MoveDetailFilm' /* webpackChunkName: 'Detail'*/));
 export const App = () => {
+  
   return (
     <>
+    <Suspense fallback={<p>....Loading</p>}>
       <Navigation />
 
       <Routes>
@@ -17,11 +23,12 @@ export const App = () => {
         <Route path="/movies" element={<Movies />} />
         <Route path="*" element={<NotFound />} />
         <Route path="movies/:filmID" element={<Detail />}>
-          <Route path={`authors`} element={<Author />} />
-          <Route path={`views`} element={<Views />} />
+          <Route path={`cast`} element={<Cast />} />
+          <Route path={`reviews`} element={<Reviews />} />
         </Route>
         
         </Routes>
+        </Suspense>
     </>
   );
 };
