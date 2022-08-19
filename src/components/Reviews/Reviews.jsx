@@ -8,7 +8,11 @@ const Views = () => {
     isLoading: false,
     error: null,
     })
+
+
     const {filmID} = useParams()
+
+
     useEffect(() => {
     const cast = async () => {
         const {results}  = await getMovieReviews(filmID);
@@ -22,33 +26,30 @@ const Views = () => {
                 items: results,
                 isLoading: false,})
             )
-            
-           
-        
         } catch (error) {
             setReviews(prevMovies => ({
                 ...prevMovies,
                 error: error.message,
                 isLoading: false,
             }));
-        }
-        
-        };
-       
+        }};
     cast();
     }, [filmID]);
 
+
     const {items, isLoading, error} = reviews
     
+
     const element = !items.length ?
         <li><h2>Not Found</h2></li> :
         items.map(view => {
     return <li className={s.item} key={view.id}>
-            
-            <p className={s.content}>{view.content}</p>
-            <h2 className={s.author}>Author: {view.author}</h2> 
-        </li>
+                <p className={s.content}>{view.content}</p>
+                <h2 className={s.author}>Author: {view.author}</h2> 
+            </li>
     })
+
+
     return (
         <>
         {error && <p>{error}</p>}
@@ -56,7 +57,6 @@ const Views = () => {
         {items.length > 0 ? 
             <ul >
                 {element}
-                
             </ul>
             :
             <p>We not have reviews😓😓😭</p>

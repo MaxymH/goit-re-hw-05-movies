@@ -9,13 +9,19 @@ export default function Detail() {
         isLoading: false,
         error: null,
     })
-    const { filmID } = useParams()
-    const { pathname } = useLocation();
-    let navigate = useNavigate();
 
+
+    const { filmID } = useParams()
+
+
+    const location = useLocation();
+    const from = location?.state?.from || '/'
+
+    let navigate = useNavigate();
     const handleClick = () => {
         navigate(-1)
     }
+
 
     useEffect(() => {
     const fetchDetailFilm = async () => {
@@ -42,14 +48,15 @@ export default function Detail() {
     }, [filmID]);
     
 
-   
-
     const {items, isLoading, error}=film
-    console.log(items)
     const {original_title , poster_path, release_date,overview} = items
+
+
     const image = poster_path
     ? `https://image.tmdb.org/t/p/w300${poster_path}`
     : 'https://upload.wikimedia.org/wikipedia/commons/9/9c/Volodymyr_Zelensky_Official_portrait.jpg';
+
+
     return (
         <>
         <div className={s.container}>
@@ -68,18 +75,17 @@ export default function Detail() {
             <ul className={s.listLink}>
                 <li>
                     <NavLink
+                    state={{ from }}
+                    to={`/movies/${filmID}/cast`}
                     className={s.link}
-            
-            to={`${pathname}/cast`}
-            >Cast</NavLink>
+                    >Cast</NavLink>
                 </li>
                 <li>
-            <NavLink 
-            className={s.link}
-                
-                to={`${pathname}/reviews`}>
-                Reviews
-            </NavLink>
+                    <NavLink 
+                    className={s.link}
+                    state={{ from }}
+                    to={`/movies/${filmID}/reviews`}
+                    >Reviews</NavLink>
                 </li>
             </ul>
             <Outlet/>

@@ -4,21 +4,16 @@ import Search from "./Search"
 import s from './search.module.css'
 
 const SearchFilm = () => {
-
     const [query, setQuery] = useState('')
-    
-    
+
 
     let navigate = useNavigate();
     const location = useLocation()
 
-    
-    
-    const onSubmit = (e) => {
-        
+
+    const onSubmit = (e) => { 
         e.preventDefault()
         setQuery('')
-        
         if (query === '') {
         return
         }
@@ -27,23 +22,18 @@ const SearchFilm = () => {
     }
 
     
-    
     const onChange = e => {
-        
-
         setQuery(e.target.value)
     }
 
-    const  getQuery = new URLSearchParams(location.search).get('query')
-    
 
+    const  getQuery = new URLSearchParams(location.search).get('query')
+
+    
     return (
         <div className={s.container}>
-
-        
             <form
-            
-             onSubmit={onSubmit}>
+            onSubmit={onSubmit}>
                 <input 
                 className={s.input}
                 value={query}

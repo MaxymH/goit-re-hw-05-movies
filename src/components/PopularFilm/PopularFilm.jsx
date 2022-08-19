@@ -7,41 +7,37 @@ import { popularMovies } from "../service/Api";
         items: [],
         isLoading: false,
         error: null,
-      });
+    });
+
+
     useEffect(() => {
     const fetchPopularMovies = async () => {
         setMovies(prevMovies => ({ ...prevMovies, isLoading: true }));
         const { results } = await popularMovies();
-     
         try {
             setMovies( prevMovies => ({
                 ...prevMovies,
                 items: results,
                 isLoading: false,
             }) )
-        
         } catch (error) {
             setMovies(prevMovies => ({
                 ...prevMovies,
                 error: error.message,
                 isLoading: false,
             }));
-        }
-        
-        };
-       
+        }  };
     fetchPopularMovies();
     }, []);
     
     
     const { items, isLoading, error} = movies
+
     return (
         <>
         {isLoading && <p>Loading...</p>}
-            {error && <p>{error}</p>}
-            
-            <MoviesList items={items}/>
-            
+        {error && <p>{error}</p>}
+        <MoviesList items={items}/>
         </>
         
     )

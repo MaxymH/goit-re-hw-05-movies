@@ -3,7 +3,7 @@ const Home = () => {
     return (
         <>
         
-            <PopularFilm></PopularFilm>
+            <PopularFilm/>
             
             
         </>

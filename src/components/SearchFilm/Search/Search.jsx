@@ -9,8 +9,8 @@ const Search = ({query}) => {
     error: null,
     })
 
+
     const fetchPopularMovies = async () => {
-       
         const  {results}  = await searchFilmByName(query);
         setMovies(prevMovies => ({
             ...prevMovies,
@@ -22,8 +22,6 @@ const Search = ({query}) => {
                 items: results,
                 isLoading: false,
             }))
-            
-        
         } catch (error) {
         setMovies(prevMovies => ({
             ...prevMovies,
@@ -35,8 +33,8 @@ const Search = ({query}) => {
         };
         fetchPopularMovies()
 
+
     const { items , error , isLoading} = movies
-  
         
 
         return (
@@ -48,9 +46,8 @@ const Search = ({query}) => {
             </>
         )
     }
-
     Search.propTypes = {
         query: PropTypes.string.isRequired,
-      };
+    };
 
 export default Search

@@ -10,7 +10,10 @@ const Author = () => {
         isLoading: false,
         error: null,
     })
+
+    
     const {filmID} = useParams();
+
 
     useEffect(() => {
     const cast = async () => {
@@ -18,8 +21,8 @@ const Author = () => {
             ...prevMovies,
             isLoading: true
         }))
-        const {cast}  = await getMovieCredits(filmID);
 
+        const {cast}  = await getMovieCredits(filmID);
         try {
             setCast(prevMovies => ({
                 ...prevMovies,
@@ -27,7 +30,6 @@ const Author = () => {
                 isLoading: false
             }))
         } catch (error) {
-
             setCast(prevMovies => ({
                 ...prevMovies,
                 error: error.message,
@@ -36,7 +38,6 @@ const Author = () => {
         }
         
         };
-       
     cast();
     }, [filmID]);
     
@@ -53,15 +54,14 @@ const Author = () => {
         </li>
     )})
     
+
     return (
         <>  
-            {error && <p>{error}</p>}
-            {isLoading&& <p>isLoading...</p>}
             <ul className={s.list}>
                 {element}
-
             </ul>
-            
+            {error && <p>{error}</p>}
+            {isLoading&& <p>isLoading...</p>}
         </>
     )
 }
