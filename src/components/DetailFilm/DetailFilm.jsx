@@ -19,7 +19,7 @@ export default function Detail() {
 
     let navigate = useNavigate();
     const handleClick = () => {
-        navigate(-1)
+        navigate(from)
     }
 
 
